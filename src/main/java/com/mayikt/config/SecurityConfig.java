@@ -7,14 +7,12 @@ import com.mayikt.mapper.PermissionMapper;
 import com.mayikt.service.MemberUserDetailsService;
 import com.mayikt.utils.MD5Util;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.annotation.web.configurers.ExpressionUrlAuthorizationConfigurer;
 import org.springframework.security.config.http.SessionCreationPolicy;
-import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
@@ -65,6 +63,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
              * @param encodedPassword
              * @return
              */
+            @Override
             public boolean matches(CharSequence rawPassword, String encodedPassword) {
                 String rawPass = MD5Util.encode((String) rawPassword);
                 boolean result = rawPass.equals(encodedPassword);

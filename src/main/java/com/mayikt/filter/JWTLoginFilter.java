@@ -38,7 +38,13 @@ public class JWTLoginFilter extends UsernamePasswordAuthenticationFilter {
         super.setFilterProcessesUrl("/auth/login");
     }
 
-    // 接收并解析用户凭证
+    /**
+     * 接收并解析用户凭证
+     * @param req
+     * @param res
+     * @return
+     * @throws AuthenticationException
+     */
     @Override
     public Authentication attemptAuthentication(HttpServletRequest req,
                                                 HttpServletResponse res) throws AuthenticationException {
@@ -57,7 +63,15 @@ public class JWTLoginFilter extends UsernamePasswordAuthenticationFilter {
         }
     }
 
-    // 用户成功登录后，这个方法会被调用，我们在这个方法里生成token
+    /**
+     * 用户成功登录后，这个方法会被调用，我们在这个方法里生成token
+     * @param req
+     * @param res
+     * @param chain
+     * @param auth
+     * @throws IOException
+     * @throws ServletException
+     */
     @Override
     protected void successfulAuthentication(HttpServletRequest req,
                                             HttpServletResponse res,

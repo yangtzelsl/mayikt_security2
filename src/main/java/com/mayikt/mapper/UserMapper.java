@@ -2,12 +2,13 @@ package com.mayikt.mapper;
 
 import com.mayikt.entity.PermissionEntity;
 import com.mayikt.entity.UserEntity;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
 
 import java.util.List;
-
+@Mapper
 public interface UserMapper {
     /**
      * 根据用户名称查询

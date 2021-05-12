@@ -91,7 +91,8 @@ public class MayiktJwtUtils {
      */
     public static List<SimpleGrantedAuthority> getUserRole(String token) {
         Claims claims = Jwts.parser().setSigningKey(APPSECRET_KEY).parseClaimsJws(token).getBody();
-        List roles = (List) claims.get("role");
+        // 根据token获取角色，不要手敲，容易出错
+        List roles = (List) claims.get(ROLE_CLAIMS);
         String json = JSONArray.toJSONString(roles);
         List<SimpleGrantedAuthority>
                 grantedAuthorityList =

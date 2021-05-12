@@ -23,6 +23,7 @@ import java.util.List;
 @Component
 @Slf4j
 public class MemberUserDetailsService implements UserDetailsService {
+
     @Autowired
     private UserMapper userMapper;
 
@@ -52,9 +53,4 @@ public class MemberUserDetailsService implements UserDetailsService {
         return userEntity;
     }
 
-    public static void main(String[] args) {
-//        UserDetailsService userDetailsService = (username) -> {
-//            return null;
-//        };
-    }
 }
