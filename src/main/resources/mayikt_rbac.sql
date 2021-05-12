@@ -14,7 +14,7 @@ Date: 2020-06-05 14:49:54
 */
 
 -- 创建数据库
-CREATE DATABASE IF NOT EXISTS mayikt_rbac DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_chinese_ci;
+CREATE DATABASE IF NOT EXISTS mayikt_rbac DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_general_ci;
 
 -- 使用数据库
 USE mayikt_rbac ;
