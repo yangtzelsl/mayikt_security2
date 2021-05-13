@@ -7,6 +7,7 @@ import com.mayikt.mapper.PermissionMapper;
 import com.mayikt.service.MemberUserDetailsService;
 import com.mayikt.utils.MD5Util;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -25,6 +26,7 @@ import java.util.List;
  **/
 @Component
 @EnableWebSecurity
+@Configuration
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private MemberUserDetailsService memberUserDetailsService;

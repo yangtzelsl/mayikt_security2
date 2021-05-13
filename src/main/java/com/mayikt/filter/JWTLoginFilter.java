@@ -3,15 +3,11 @@ package com.mayikt.filter;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mayikt.entity.UserEntity;
 import com.mayikt.utils.MayiktJwtUtils;
-import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
-import org.springframework.security.web.authentication.AuthenticationFailureHandler;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
@@ -19,7 +15,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Date;
 
 /**
  * 验证用户名密码正确后，生成一个token，并将token返回给客户端
@@ -31,7 +26,7 @@ import java.util.Date;
  */
 public class JWTLoginFilter extends UsernamePasswordAuthenticationFilter {
 
-    private AuthenticationManager authenticationManager;
+    private final AuthenticationManager authenticationManager;
 
     public JWTLoginFilter(AuthenticationManager authenticationManager) {
         this.authenticationManager = authenticationManager;
@@ -40,6 +35,7 @@ public class JWTLoginFilter extends UsernamePasswordAuthenticationFilter {
 
     /**
      * 接收并解析用户凭证
+     *
      * @param req
      * @param res
      * @return
@@ -65,6 +61,7 @@ public class JWTLoginFilter extends UsernamePasswordAuthenticationFilter {
 
     /**
      * 用户成功登录后，这个方法会被调用，我们在这个方法里生成token
+     *
      * @param req
      * @param res
      * @param chain

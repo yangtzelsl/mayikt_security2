@@ -1,12 +1,14 @@
 package com.mayikt.mapper;
 
-import java.security.Permission;
-import java.util.List;
-
 import com.mayikt.entity.PermissionEntity;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
+import java.util.List;
+
+/**
+ * @author luis.liu
+ */
 @Mapper
 public interface PermissionMapper {
 

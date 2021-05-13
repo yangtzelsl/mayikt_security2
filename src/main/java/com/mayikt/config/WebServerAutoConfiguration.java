@@ -9,6 +9,8 @@ import org.springframework.http.HttpStatus;
 
 /**
  * 自定义SpringBoot 错误异常
+ *
+ * @author luis.liu
  */
 @Configuration
 public class WebServerAutoConfiguration {
